@@ -34,6 +34,7 @@ CURRENT_DOMAIN = env('CURRENT_DOMAIN')
 
 STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY_VAR')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY_var')
+WEBHOOK_SECRET = env('WEBHOOK_SECRET_VAR')
 
 
 # Application definition
@@ -86,8 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'djpay',
-        'USER': 'postgres',
-        'PASSWORD': 'post@2310',
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }

@@ -11,7 +11,7 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-webhook_secret = 'whsec_13304eaf57e0917dc9be614247cbdff1d39036cf3d5045a41b80fdc0e64b2674'
+webhook_secret = settings.WEBHOOK_SECRET
 
 # Create your views here.
 
