@@ -12,25 +12,28 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env(DEBUG=(bool, False))
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!lw$^t&+dago_)u8kl2j!yeeo+*j4$7z%b^=e_-t3nc1^_e2($'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
-CURRENT_DOMAIN = 'http://127.0.0.1:8000'
+CURRENT_DOMAIN = env('CURRENT_DOMAIN')
 
-STRIPE_PUBLIC_KEY = 'pk_test_51ND1SySIX7taMLuTtCsPKkuhvHm2HPXHFLZM5b6kSolM7fAmcyouH4wmSxWImmfEfMthjLDreE1H00PZJAMpUTuD00Nh5Bm2Kw'
-STRIPE_SECRET_KEY = 'sk_test_51ND1SySIX7taMLuTfDjse4PR7p4fRhD82Yox6Jtj6zETtl4w7S8twQOkJBqsv1fnF1XGhpAqaXiwE3CTNM4ia0Q000QSELoG24'
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY_VAR')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY_var')
 
 
 # Application definition

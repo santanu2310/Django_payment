@@ -1,0 +1,4 @@
+*/__pycache__/*
+/dj_payment/.env
+/media
+/static
