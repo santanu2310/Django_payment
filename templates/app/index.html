@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<main class="d-flex flex-wrap justify-content-center">
+    {% for product in products %}
+    <div class="card m-3" style="width: 18rem;">
+        <img src="{{product.image.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <span class="d-block mb-2">${{product.price}}</span>
+            <form action="{% url 'checkout_session' id=product.id %}" method="get">
+                {% csrf_token %}
+                <button class="btn btn-primary" type="submit" id="checkout-button">Buy Now</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</main>
+{% endblock %}

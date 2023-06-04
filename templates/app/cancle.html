@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<main class="vh-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column justify-content-center" style="width: 500px;">
+        <p class="text-md-center">Forgot to add something to your cart? Shop around <br> then come back to pay!</p>
+        <a href="{% url 'home' %}" type="button" class="btn btn-danger mt-4">Back to Home</a>
+    </div>
+</main>
+{% endblock %}
